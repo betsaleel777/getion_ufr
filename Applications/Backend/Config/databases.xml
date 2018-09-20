@@ -1,0 +1,3 @@
+<databases>
+  <database dbname="webproject" dsn="mysql:host=localhost;dbname=webproject" user="shin" password="keygen1995"/>
+</databases>

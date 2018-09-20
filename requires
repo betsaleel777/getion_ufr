@@ -1,0 +1,17 @@
+pour utiliser la bibliotheque codersPride il est nécéssaire d'avoir les éléments suivants :
+-un serveur HTTP apache2 par exemple
+-un serveur de base de donnée installer à la racine serais le meilleur
+-mysql ou postgresql comme SGBD sur votre machine
+-utiliser linux pour bénéficier de la commande soshiki
+
+-configurer apache2 pour faire du url rewriting activer ce module :
+ taper en tant que root : a2enmod rewrite
+ taper toujour en root  : gedit opt/lampp/httpd.conf si vous avez xampp
+                         si apache2 est installé directement sur votre machine faire /etc/apache2/apache2.conf
+ensuite modifier la ligne allowOverride None en All
+copier les instructions ci dessous à la fin du fichier :
+
+si la page s'affiche totalement en blanc activer la dectection d'erreur php dans /etc/php/7.0/apache2/php.ini
+rechercher la ligne display_errors = Off et changez la en On
+
+si une erreure de Dom s'affiche installer l'extensions paquet php-xml
