@@ -1,15 +1,4 @@
 <routes>
    <route url='/met_les_gazs/web/dashboard\.html' module='Dashboard' action='index' />
 
-   <route url='/met_les_gazs/web/etudiants\.html' module='Etudiants' action='index' />
-   <route url='/met_les_gazs/web/etudiants\.html\?page=([0-9]+)' module='Etudiants' action='index' vars='page' />
-   <route url='/met_les_gazs/web/etudiantsAdd\.html' module='Etudiants' action='add' />
-   <route url='/met_les_gazs/web/etudiantsUpdate-([0-9]+)\.html' module='Etudiants' action='update' vars='id' />
-   <route url='/met_les_gazs/web/etudiantsDelete-([0-9]+)\.html' module='Etudiants' action='delete' vars='id' />
-
-   <route url='/met_les_gazs/web/Ues\.html' module='Ues' action='index' />
-   <route url='/met_les_gazs/web/Ues\.html\?page=([0-9]+)' module='Ues' action='index' vars='page' />
-   <route url='/met_les_gazs/web/UesAdd\.html' module='Ues' action='add' />
-   <route url='/met_les_gazs/web/UesUpdate-([0-9]+)\.html' module='Ues' action='update' vars='id' />
-   <route url='/met_les_gazs/web/UesDelete-([0-9]+)\.html' module='Ues' action='delete' vars='id' />
 </routes>

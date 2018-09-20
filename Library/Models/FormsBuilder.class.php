@@ -1,5 +1,5 @@
 <?php
- namespace Library\Models ;
+namespace Library\Models ;
 
 class FormsBuilder extends OldManager
 {

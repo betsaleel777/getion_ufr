@@ -96,10 +96,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <li>
-                    <a href="etudiants.html">
-                        <i class="fas fa-chart-pie"></i>
-                        etudiants
-                    </a>
+                  <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
+                      <i class="far fa-file"></i>
+                      Maquette UFR
+                      <i class="fas fa-angle-down fa-pull-right"></i>
+                  </a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu1">
+                      <li>
+                          <a href="ues.html">Gestionnaire UE</a>
+                      </li>
+                      <li>
+                          <a href="ecues.html">Gestionnaire ECUE</a>
+                      </li>
+                      <li>
+                          <a href="dommaines.html">Gestionnaire Dommaine</a>
+                      </li>
+                      <li>
+                          <a href="grades.html">Gestionnaire Grade</a>
+                      </li>
+                      <li>
+                          <a href="parcours.html">Gestionnaire Parcours</a>
+                      </li>
+                      <li>
+                          <a href="specialites.html">Gestionnaire Spécialité</a>
+                      </li>
+                  </ul>
                 </li>
                 <li>
                     <a href="grids.html">

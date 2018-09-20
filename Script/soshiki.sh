@@ -24,7 +24,7 @@ if [[ -n "$1" && -n "$2" ]]; then
       \$displayer = new \Library\Models\Displayer(\$this->module(),
       \$this->managers->dao(),
       \Library\PdoFactory::getDatabaseName()) ;
-      \$indesirables = ['genre','email','domicile'] ;
+      \$indesirables = [] ;
       \$board = \$pagination->board(lcfirst(\$this->module()).'html') ;
       \$tableau = \$displayer->display(\$list,\$indesirables,\$board,\$this->module()) ;
       \$this->page->addVar('titre', 'Liste variable') ;
@@ -35,15 +35,27 @@ if [[ -n "$1" && -n "$2" ]]; then
       \$this->page->addVar('title', 'ajout variable');
       \$this->setView('add');
       if (\$request->postExists('uniqid')) {
-          \$this->processForm(\$request, 'variable') ;
+        \$retour = \$this->processForm(\$request, 'variable') ;
+          if(!empty(\$retour)){
+            \$formBuilder = new \Library\Models\FormsBuilder(
+            \$this->module(),
+            \$this->managers(),
+            \$this->managers->dao(),
+            \Library\PdoFactory::getDatabaseName(),\$retour->erreurs()
+            );
+            \$form = \$formBuilder->generate() ;
+            \$_SESSION['token'] = \$formBuilder->form()->uniqid() ;
+            \$this->page->addVar('form', \$form);
+          }
       } else {
-          \$formBuilder = new \Library\Models\FormsBuilder(
-          \$this->module(),
-          \$this->managers(),
-          \$this->managers->dao(),
-          \Library\PdoFactory::getDatabaseName()
-      ) ;
+        \$formBuilder = new \Library\Models\FormsBuilder(
+        \$this->module(),
+        \$this->managers(),
+        \$this->managers->dao(),
+        \Library\PdoFactory::getDatabaseName()
+        );
           \$form = \$formBuilder->generate() ;
+          \$_SESSION['token']= \$formBuilder->form()->uniqid() ;
           \$this->page->addVar('form', \$form);
       }
     }
@@ -52,7 +64,17 @@ if [[ -n "$1" && -n "$2" ]]; then
       \$this->page->addVar('title', 'modifier variable');
       \$this->setView('add');
       if (\$request->postExists('uniqid')) {
-          \$this->processForm(\$request, 'variable') ;
+        \$retour = \$this->processForm(\$request, 'variable') ;
+          if(!empty(\$retour)){
+            \$formBuilder = new \Library\Models\FormsBuilder(
+            \$this->module(),
+            \$this->managers(),
+            \$this->managers->dao(),
+            \Library\PdoFactory::getDatabaseName(),\$retour->erreurs()
+            );
+            \$form = \$formBuilder->generate() ;
+            \$_SESSION['token'] = \$formBuilder->form()->uniqid() ;
+            \$this->page->addVar('form', $form);
       } else {
           \$formBuilder = new \Library\Models\FormsBuilder(
           \$this->module(),
@@ -61,6 +83,7 @@ if [[ -n "$1" && -n "$2" ]]; then
           \Library\PdoFactory::getDatabaseName()
       ) ;
           \$form = \$formBuilder->generate(\$request->getData('id')) ;
+          \$_SESSION['token']= \$formBuilder->form()->uniqid() ;
           \$this->page->addVar('form', \$form);
       }
     }
