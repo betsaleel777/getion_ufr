@@ -62,7 +62,7 @@ if [[ -n "$1" && -n "$2" ]]; then
 
     public function executeUpdate(\Library\HTTPRequest \$request){
       \$this->page->addVar('title', 'modifier variable');
-      \$this->setView('add');
+      \$this->setView('update');
       if (\$request->postExists('uniqid')) {
         \$retour = \$this->processForm(\$request, 'variable') ;
           if(!empty(\$retour)){
@@ -72,9 +72,10 @@ if [[ -n "$1" && -n "$2" ]]; then
             \$this->managers->dao(),
             \Library\PdoFactory::getDatabaseName(),\$retour->erreurs()
             );
-            \$form = \$formBuilder->generate() ;
+            \$form = \$formBuilder->generate(\$request->getData('id')) ;
             \$_SESSION['token'] = \$formBuilder->form()->uniqid() ;
-            \$this->page->addVar('form', $form);
+            \$this->page->addVar('form', \$form);
+          }
       } else {
           \$formBuilder = new \Library\Models\FormsBuilder(
           \$this->module(),
@@ -96,9 +97,8 @@ if [[ -n "$1" && -n "$2" ]]; then
   }
 ?>
 EOF
-
   cat >Library/Models/$2Manager.class.php<<EOF
-  <?php
+<?php
    namespace Library\Models ;
 
    abstract class variableManager extends \Library\Manager
@@ -110,30 +110,28 @@ EOF
      abstract protected function delete(int \$id) ;
 
 
-     public function save(\Library\Entities\variable \$objet)
+     public function save(\Library\Entities\variable \$miniscule)
      {
-        \$objet->isNew()?\$this->add(\$objet):\$this->update(\$objet) ;
+        \$miniscule->isNew()?\$this->add(\$miniscule):\$this->update(\$miniscule) ;
      }
    }
-  ?>
+?>
 EOF
-
   cat >Library/Models/$2ManagerPdo.class.php<<EOF
-
-  <?php
+<?php
    namespace Library\Models ;
 
    class variableManagerPdo extends variableManager
    {
-     public function add(\Library\Entities\variable \$objetvariable){
+     public function add(\Library\Entities\variable \$miniscule){
 
      }
-     public function update(\Library\Entities\variable \$objetvariable){
+     public function update(\Library\Entities\variable \$miniscule){
 
      }
      public function getUnique(int \$id){
        try {
-           \$sql = "SELECT * FROM variable WHERE id=\$id";
+           \$sql = "SELECT * FROM miniscule WHERE id=\$id";
            \$statement = \$this->db->query(\$sql);
            \$array = \$statement->fetch(\PDO::FETCH_ASSOC) ;
            return \$array ;
@@ -145,7 +143,7 @@ EOF
      }
      public function getList(\$debut=0,\$offset=1){
        try {
-           \$sql = "SELECT * FROM variable LIMIT \$debut,\$offset";
+           \$sql = "SELECT * FROM miniscule LIMIT \$debut,\$offset";
            \$statement = \$this->db->query(\$sql);
            \$array = \$statement->fetchAll(\PDO::FETCH_ASSOC) ;
            return \$array ;
@@ -154,16 +152,15 @@ EOF
        }
      }
      public function count(){
-       \$sql = 'SELECT COUNT(*) AS variable FROM variable' ;
+       \$sql = 'SELECT COUNT(*) AS miniscule FROM miniscule' ;
        \$statement = \$this->db->query(\$sql) ;
        \$resultat = \$statement->fetch(\PDO::FETCH_ASSOC) ;
-       return \$resultat['variable'] ;
+       return \$resultat['miniscule'] ;
      }
      public function delete(int \$id){
-       \$sql = 'DELETE FROM variable WHERE id='.\$id ;
+       \$sql = 'DELETE FROM miniscule WHERE id='.\$id ;
        \$statement = \$this->db->query(\$sql) ;
      }
-
    }
 EOF
 
@@ -175,11 +172,11 @@ EOF
  }
 EOF
 cat >>Applications/Backend/Config/routes.xml<<EOF
-<!-- <route url='/projet/web/variable\.html' module='variable' action='index' />
-<route url='/projet/web/variable\.html\?page=([0-9]+)' module='variable' action='index' vars='page' />
-<route url='/projet/web/variableAdd\.html' module='variable' action='add' />
-<route url='/projet/web/variableUpdate-([0-9]+)\.html' module='variable' action='update' vars='id' />
-<route url='/projet/web/variableDelete-([0-9]+)\.html' module='variable' action='delete' vars='id' /> -->
+<!-- <route url='/projet/web/miniscule\.html' module='variable' action='index' />
+<route url='/projet/web/miniscule\.html\?page=([0-9]+)' module='variable' action='index' vars='page' />
+<route url='/projet/web/minisculeAdd\.html' module='variable' action='add' />
+<route url='/projet/web/minisculeUpdate-([0-9]+)\.html' module='variable' action='update' vars='id' />
+<route url='/projet/web/minisculeDelete-([0-9]+)\.html' module='variable' action='delete' vars='id' /> -->
 EOF
   sed -i -e "s/variable/$2/g" "Applications/Backend/Config/routes.xml"
   sed -i -e "s/projet/$1/g" "Applications/Backend/Config/routes.xml"
@@ -187,6 +184,12 @@ EOF
   sed -i -e "s/variable/$2/g" "Library/Models/$2Manager.class.php"
   sed -i -e "s/variable/$2/g" "Library/Models/$2ManagerPdo.class.php"
   sed -i -e "s/variable/$2/g" "Library/Entities/$2.class.php"
+
+  var=$( echo $2 | tr [:upper:] [:lower:])
+
+  sed -i -e "s/miniscule/$var/g" "Library/Models/$2Manager.class.php"
+  sed -i -e "s/miniscule/$var/g" "Library/Models/$2ManagerPdo.class.php"
+  sed -i -e "s/miniscule/$var/g" "Applications/Backend/Config/routes.xml"
   #ecrire dans tout ces fichiers un code minimal
 else
   echo "paramètre érroné Ex soshiki.sh repertoire_de_projet le_nom_du_module"

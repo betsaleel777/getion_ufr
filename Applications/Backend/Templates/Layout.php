@@ -59,14 +59,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h1>
-                    <a href="index.html">Modernize</a>
+                    <a href="dashboard.html">Modernize</a>
                 </h1>
                 <span>M</span>
             </div>
             <div class="profile-bg"></div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="dashboard.html">
                         <i class="fas fa-th-large"></i>
                         Dashboard
                     </a>

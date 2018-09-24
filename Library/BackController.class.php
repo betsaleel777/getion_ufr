@@ -114,8 +114,6 @@ abstract class BackController extends ApplicationComponent
         $post = filter_input_array(INPUT_POST) ;
         if($request->authenticForm($post['uniqid']))
         {
-          unset($post['uniqid']);
-          unset($post['submit']) ;
           $linkObject = '\Library\Entities\\'.$object;
           $localObject = new $linkObject($post) ;
           if($request->getExists('id')){
