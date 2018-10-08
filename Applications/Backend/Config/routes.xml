@@ -5,11 +5,49 @@
    <route url='/met_les_gazs/web/ues\.html\?page=([0-9]+)' module='Ues' action='index' vars='page' />
    <route url='/met_les_gazs/web/uesAdd\.html' module='Ues' action='add' />
    <route url='/met_les_gazs/web/uesUpdate-([0-9]+)\.html' module='Ues' action='update' vars='id' />
-   <route url='/met_les_gazs/web/uesDelete-([0-9]+)\.html' module='Ues' action='delete' vars='id' />
 
    <route url='/met_les_gazs/web/ecues\.html' module='Ecues' action='index' />
    <route url='/met_les_gazs/web/ecues\.html\?page=([0-9]+)' module='Ecues' action='index' vars='page' />
    <route url='/met_les_gazs/web/ecuesAdd\.html' module='Ecues' action='add' />
    <route url='/met_les_gazs/web/ecuesUpdate-([0-9]+)\.html' module='Ecues' action='update' vars='id' />
-   <route url='/met_les_gazs/web/ecuesDelete-([0-9]+)\.html' module='Ecues' action='delete' vars='id' />
+
+   <route url='/met_les_gazs/web/specialites\.html' module='Specialites' action='index' />
+   <route url='/met_les_gazs/web/specialites\.html\?page=([0-9]+)' module='Specialites' action='index' vars='page' />
+   <route url='/met_les_gazs/web/specialitesAdd\.html' module='Specialites' action='add' />
+   <route url='/met_les_gazs/web/specialitesUpdate-([0-9]+)\.html' module='Specialites' action='update' vars='id' />
+
+   <route url='/met_les_gazs/web/domaines\.html' module='Domaines' action='index' />
+   <route url='/met_les_gazs/web/domaines\.html\?page=([0-9]+)' module='Domaines' action='index' vars='page' />
+   <route url='/met_les_gazs/web/domainesAdd\.html' module='Domaines' action='add' />
+   <route url='/met_les_gazs/web/domainesUpdate-([0-9]+)\.html' module='Domaines' action='update' vars='id' />
+
+   <route url='/met_les_gazs/web/parcours\.html' module='Parcours' action='index' />
+   <route url='/met_les_gazs/web/parcours\.html\?page=([0-9]+)' module='Parcours' action='index' vars='page' />
+   <route url='/met_les_gazs/web/parcoursAdd\.html' module='Parcours' action='add' />
+   <route url='/met_les_gazs/web/parcoursUpdate-([0-9]+)\.html' module='Parcours' action='update' vars='id' />
+
+   <route url='/met_les_gazs/web/semestres_parcours\.html' module='Semestres_parcours' action='index' />
+   <route url='/met_les_gazs/web/semestres_parcours\.html\?page=([0-9]+)' module='Semestres_parcours' action='index' vars='page' />
+   <route url='/met_les_gazs/web/semestres_parcoursAdd\.html' module='Semestres_parcours' action='add' />
+   <route url='/met_les_gazs/web/semestres_parcoursUpdate-([0-9]+)\.html' module='Semestres_parcours' action='update' vars='id' />
+   <route url='/met_les_gazs/web/loadSemestre\.html' module='Semestres_parcours' action='semestreAjax' />
+
+   <route url='/met_les_gazs/web/dispensees\.html' module='Dispensees' action='index' />
+   <route url='/met_les_gazs/web/dispenseesAdd\.html' module='Dispensees' action='add' />
+   <route url='/met_les_gazs/web/ajaxDispensees\.html' module='Dispensees' action='enregistrer' />
+   <route url='/met_les_gazs/web/dispensees\.html\?page=([0-9]+)' module='Dispensees' action='index' vars='page' />
+   <route url='/met_les_gazs/web/dispenseesUpdate-([0-9]+)\.html' module='Dispensees' action='update' vars='id' />
+   <route url='/met_les_gazs/web/dispenseesShow-([0-9]+)\.html' module='Dispensees' action='show' vars='id' />
+   <route url='/met_les_gazs/web/dispenseesUpdateShow-([0-9]+)\.html\?ue=([0-9]+)\?semp=([0-9]+)' module='Dispensees' action='updateShow' vars='id,ue,semp' />
+
+   <route url='/met_les_gazs/web/professeurs\.html' module='Professeurs' action='index' />
+   <route url='/met_les_gazs/web/professeurs\.html\?page=([0-9]+)' module='Professeurs' action='index' vars='page' />
+   <route url='/met_les_gazs/web/professeursAdd\.html' module='Professeurs' action='add' />
+   <route url='/met_les_gazs/web/professeursUpdate-([0-9]+)\.html' module='Professeurs' action='update' vars='id' />
+
+   <route url='/met_les_gazs/web/annees_universitaires\.html' module='Annees_universitaires' action='index' />
+   <route url='/met_les_gazs/web/annees_universitaires\.html\?page=([0-9]+)' module='Annees_universitaires' action='index' vars='page' />
+   <route url='/met_les_gazs/web/annees_universitairesAdd\.html' module='Annees_universitaires' action='add' />
+   <route url='/met_les_gazs/web/annees_universitairesUpdate-([0-9]+)\.html' module='Annees_universitaires' action='update' vars='id' />
+
 </routes>

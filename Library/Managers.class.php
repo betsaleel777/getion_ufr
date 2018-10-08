@@ -1,9 +1,6 @@
 <?php
 
-/*cette classe existe pour permettre aux controleur d'instancier des manager lié à leur module plus
-   plus facilement */
-//respect PEAR notation
-  namespace Library ;
+namespace Library ;
 
 class Managers
 {

@@ -20,8 +20,9 @@ abstract class BackController extends ApplicationComponent
     }
 
     //getters
-    public function managers(){
-      return $this->managers ;
+    public function managers()
+    {
+        return $this->managers ;
     }
     public function module():string
     {
@@ -109,27 +110,55 @@ abstract class BackController extends ApplicationComponent
         }
     }
 
-    public function processForm(\Library\HTTPRequest $request,$object){
-      if($request->method() == 'POST'){
-        $post = filter_input_array(INPUT_POST) ;
-        if($request->authenticForm($post['uniqid']))
-        {
-          $linkObject = '\Library\Entities\\'.$object;
-          $localObject = new $linkObject($post) ;
-          if($request->getExists('id')){
-            $localObject->setId($request->getdata('id'));
-          }
+    public function processForm(\Library\HTTPRequest $request, $object)
+    {
+        if ($request->method() == 'POST') {
+            $post = filter_input_array(INPUT_POST) ;
+            if ($request->authenticForm($post['uniqid'])) {
+                $linkObject = '\Library\Entities\\'.$object;
+                $localObject = new $linkObject($post) ;
+                if ($request->getExists('id')) {
+                    $localObject->setId($request->getdata('id'));
+                }
 
-          if($localObject->isValid())
-          {
-            $this->managers->getManagerOf($object)->save($localObject);
-            $link = lcfirst($this->module()).'.html';
-            $this->app->httpResponse()->redirect($link) ;
-          }
-          else{
-            return $localObject ;
-          }
+                if ($localObject->isValid()) {
+                    $this->managers->getManagerOf($object)->save($localObject);
+                    $message = 'les valeures ont été enregistrée avec succès' ;
+                    $this->app->user()->setFlash($this->textNotify('success', $message)) ;
+                    if ($request->sessionExists('MYSQL_ERROR')) {
+                        $errorPDO = unserialize($request->sessionTemp('MYSQL_ERROR'))  ;
+                        $error = new \Library\Error($errorPDO) ;
+                        $message = $error->errorsRapport() ;
+                        $this->app->user()->setFlash($this->textNotify('warning', $message)) ;
+                        if ($this->action() == 'add') {
+                            $link = lcfirst($this->module()).ucfirst($this->action()).'.html';
+                            $this->app->httpResponse()->redirect($link) ;
+                        } elseif ($this->action() == 'update') {
+                            $link = lcfirst($this->module()).ucfirst($this->action()).'-'.$request->getData('id').'.html';
+                            $this->app->httpResponse()->redirect($link) ;
+                        }
+                    }
+                    $link = lcfirst($this->module()).'.html';
+                    $this->app->httpResponse()->redirect($link) ;
+                } else {
+                    $message = 'Echec lors de l\'enregistrement des informations veuillez renseigner correctement les champs' ;
+                    $this->app->user()->setFlash($this->textNotify('danger', $message)) ;
+                    return $localObject ;
+                }
+            }
         }
-      }
+    }
+
+    public function radar(\Library\HTTPRequest $request):bool
+    {
+        if ($request->sessionExists('MYSQL_ERROR')) {
+            $errorPDO = unserialize($request->sessionTemp('MYSQL_ERROR')) ;
+            $error = new \Library\Error($errorPDO) ;
+            $message = $error->errorsRapport() ;
+            $this->app->user()->setFlash($this->textNotify('warning', $message)) ;
+            return true ;
+        } else {
+            return false ;
+        }
     }
 }

@@ -54,6 +54,12 @@
      return isset($_SESSION[$key]) ? $_SESSION[$key] :null ;
     }
 
+    public function sessionTemp($key){
+      $flash = $_SESSION[$key] ;
+      unset($_SESSION[$key]) ;
+      return $flash ;
+    }
+
     public function getToken(){
        return isset($_SESSION['token']) ? $_SESSION['token'] :null ;
     }

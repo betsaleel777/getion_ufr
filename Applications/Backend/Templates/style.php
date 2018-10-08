@@ -23,7 +23,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
     </script>
     <!-- //Meta Tags -->
-
+    <!-- jquery-ui dependences -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
     <!-- Style-sheets -->
     <!-- Bootstrap Css -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -41,6 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/style4.css">
     <!--// Nav Css -->
     <!-- Fontawesome Css -->
+    <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/fontawesome-all.css" rel="stylesheet">
     <!--// Fontawesome Css -->
     <!--// Style-sheets -->
@@ -49,4 +53,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!--//web-fonts-->
+    <link rel="stylesheet" type="text/css" href="css/jquery-customselect.css" />
+    <script src='js/jquery-2.2.3.min.js'></script>
 </head>

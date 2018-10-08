@@ -5,6 +5,7 @@
   {
     protected $id;
     protected $erreurs = array();
+    protected $customErreurs = array() ;
 
     public function __construct(array $donnees = array())
     {
@@ -28,6 +29,11 @@
      return empty($this->erreurs) ;
     }
 
+    public function isValid1():bool
+    {
+     return empty($this->customErreurs) ;
+    }
+
     public function isNew():bool
     {
       return empty($this->id) ;
@@ -38,9 +44,19 @@
       return $this->erreurs ;
     }
 
+    public function customErreurs():array
+    {
+      return $this->customErreurs ;
+    }
+
     public function setErreurs(array $val)
     {
       $this->erreurs = array_merge($this->erreurs,$val) ;
+    }
+
+    public function setCustomErrors(string $val)
+    {
+      $this->customErreurs[] = $val ;
     }
 
     //hydratation

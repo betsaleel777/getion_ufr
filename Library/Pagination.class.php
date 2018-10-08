@@ -42,7 +42,7 @@ class Pagination
     {
         $board ='' ;
         if (!empty($this->page_number()) and !empty($this->nowPage())) {
-            $board .= '<center><ul class="pagination pagination-sm">' ; //Pour l'affichage, on centre la liste des pages
+            $board .= '<center><ul class="pagination">' ; //Pour l'affichage, on centre la liste des pages
         for ($i=1; $i<=$this->page_number(); $i++) { //On fait notre boucle
           if ($i==$this->nowPage()) { //Si il s'agit de la page actuelle...
             $board .= '<li class="active"><a href="#">'.$i.'</a></li>';
