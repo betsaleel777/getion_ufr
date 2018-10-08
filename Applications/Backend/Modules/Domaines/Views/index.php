@@ -1,5 +1,5 @@
 <div class="outer-w3-agile mt-3">
-  <a href="ecuesAdd.html">ajouter</a>
+  <a href="domainesAdd.html">ajouter</a>
 </div>
 <div class="outer-w3-agile mt-3">
     <h4 class="tittle-w3-agileits mb-4"><?php if(isset($titre)){ echo $titre ;} ?></h4>

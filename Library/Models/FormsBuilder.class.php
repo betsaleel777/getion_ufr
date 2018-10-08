@@ -21,14 +21,19 @@ class FormsBuilder extends OldManager
     }
 
     //le tableau donnees doit etre un tableau du type $id => $nom
-    protected function select(string $nomDuChamp, string $valeur = null, array $donnees = []):string
+    protected function select(string $nomDuChamp, string $valeur = null, array $donnees = [])
     {
+        $labelDuChamp = '<strong>'.str_replace('_',' ',$nomDuChamp).'</strong>' ;
         if (empty($valeur)) {
-            $this->form->add('Select', $nomDuChamp)->choices($donnees) ;
+            $this->form->add('Select', $nomDuChamp)->label($labelDuChamp)
+                                                   ->choices($donnees)
+                                                   ->value('choix')  ;
         } else {
-            $this->form->add('Select', $nomDuChamp)->choices($donnees)
+            $this->form->add('Select', $nomDuChamp)->label($labelDuChamp)
+                                                   ->choices($donnees)
                                                    ->value($valeur) ;
         }
+        return $this->form ;
     }
 
     protected function is_key(string $nomDuChamp):bool

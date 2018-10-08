@@ -140,6 +140,18 @@ EOF
        }
      }
      public function getListAll(){
+       try {
+           \$sql = "SELECT * FROM miniscule";
+           \$statement = \$this->db->query(\$sql);
+           \$data = [] ;
+           while(\$resultat = \$statement->fetch(\PDO::FETCH_ASSOC)){
+              \$data = \$data+array(\$resultat['id'] => \$resultat['nom']);
+           }
+           \$data = \$data+array('choix' => 'choix....') ;
+           return \$data ;
+       } catch (\PDOException \$e) {
+           return \$e ;
+       }
      }
      public function getList(\$debut=0,\$offset=1){
        try {

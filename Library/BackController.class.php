@@ -116,6 +116,10 @@ abstract class BackController extends ApplicationComponent
         {
           $linkObject = '\Library\Entities\\'.$object;
           $localObject = new $linkObject($post) ;
+          echo "<pre>" ;
+          print_r($localObject) ;
+          echo "</pre>" ;
+          exit ;
           if($request->getExists('id')){
             $localObject->setId($request->getdata('id'));
           }

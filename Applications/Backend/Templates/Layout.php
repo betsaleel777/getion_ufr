@@ -109,13 +109,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           <a href="ecues.html">Gestionnaire ECUE</a>
                       </li>
                       <li>
-                          <a href="dommaines.html">Gestionnaire Dommaine</a>
-                      </li>
-                      <li>
-                          <a href="grades.html">Gestionnaire Grade</a>
+                          <a href="domaines.html">Gestionnaire Dommaine</a>
                       </li>
                       <li>
                           <a href="parcours.html">Gestionnaire Parcours</a>
+                      </li>
+                      <li>
+                          <a href="semestres_parcours.html">Gestionnaire Semestres</a>
                       </li>
                       <li>
                           <a href="specialites.html">Gestionnaire Spécialité</a>

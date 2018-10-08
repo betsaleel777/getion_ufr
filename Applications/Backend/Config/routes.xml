@@ -12,4 +12,33 @@
    <route url='/met_les_gazs/web/ecuesAdd\.html' module='Ecues' action='add' />
    <route url='/met_les_gazs/web/ecuesUpdate-([0-9]+)\.html' module='Ecues' action='update' vars='id' />
    <route url='/met_les_gazs/web/ecuesDelete-([0-9]+)\.html' module='Ecues' action='delete' vars='id' />
+
+   <route url='/met_les_gazs/web/specialites\.html' module='Specialites' action='index' />
+   <route url='/met_les_gazs/web/specialites\.html\?page=([0-9]+)' module='Specialites' action='index' vars='page' />
+   <route url='/met_les_gazs/web/specialitesAdd\.html' module='Specialites' action='add' />
+   <route url='/met_les_gazs/web/specialitesUpdate-([0-9]+)\.html' module='Specialites' action='update' vars='id' />
+   <route url='/met_les_gazs/web/specialitesDelete-([0-9]+)\.html' module='Specialites' action='delete' vars='id' />
+
+   <route url='/met_les_gazs/web/domaines\.html' module='Domaines' action='index' />
+   <route url='/met_les_gazs/web/domaines\.html\?page=([0-9]+)' module='Domaines' action='index' vars='page' />
+   <route url='/met_les_gazs/web/domainesAdd\.html' module='Domaines' action='add' />
+   <route url='/met_les_gazs/web/domainesUpdate-([0-9]+)\.html' module='Domaines' action='update' vars='id' />
+   <route url='/met_les_gazs/web/domainesDelete-([0-9]+)\.html' module='Domaines' action='delete' vars='id' />
+
+   <route url='/met_les_gazs/web/parcours\.html' module='Parcours' action='index' />
+   <route url='/met_les_gazs/web/parcours\.html\?page=([0-9]+)' module='Parcours' action='index' vars='page' />
+   <route url='/met_les_gazs/web/parcoursAdd\.html' module='Parcours' action='add' />
+   <route url='/met_les_gazs/web/parcoursUpdate-([0-9]+)\.html' module='Parcours' action='update' vars='id' />
+   <route url='/met_les_gazs/web/parcoursDelete-([0-9]+)\.html' module='Parcours' action='delete' vars='id' />
+
+   <route url='/met_les_gazs/web/semestres_parcours\.html' module='Semestres_parcours' action='index' />
+   <route url='/met_les_gazs/web/semestres_parcours\.html\?page=([0-9]+)' module='Semestres_parcours' action='index' vars='page' />
+   <route url='/met_les_gazs/web/semestres_parcoursAdd\.html' module='Semestres_parcours' action='add' />
+   <route url='/met_les_gazs/web/semestres_parcoursUpdate-([0-9]+)\.html' module='Semestres_parcours' action='update' vars='id' />
+   <route url='/met_les_gazs/web/semestres_parcoursDelete-([0-9]+)\.html' module='Semestres_parcours' action='delete' vars='id' />
 </routes>
+<!-- <route url='/met_les_gazs/web/semestres_niveaus\.html' module='Semestres_niveaus' action='index' />
+<route url='/met_les_gazs/web/semestres_niveaus\.html\?page=([0-9]+)' module='Semestres_niveaus' action='index' vars='page' />
+<route url='/met_les_gazs/web/semestres_niveausAdd\.html' module='Semestres_niveaus' action='add' />
+<route url='/met_les_gazs/web/semestres_niveausUpdate-([0-9]+)\.html' module='Semestres_niveaus' action='update' vars='id' />
+<route url='/met_les_gazs/web/semestres_niveausDelete-([0-9]+)\.html' module='Semestres_niveaus' action='delete' vars='id' /> -->
