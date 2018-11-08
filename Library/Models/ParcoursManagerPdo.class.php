@@ -10,8 +10,8 @@
          $statement->bindValue(':grade',$parcours->grade(),\PDO::PARAM_INT) ;
          $statement->bindValue(':specialite',$parcours->specialite(),\PDO::PARAM_INT) ;
          $statement->execute() ;
-       } catch (\Exception $e) {
-         return $e ;
+       } catch (\PDOException $e) {
+         $_SESSION['MYSQL_ERROR'] = serialize($e) ;
        }
 
      }
@@ -25,7 +25,7 @@
            $array = $statement->fetch(\PDO::FETCH_ASSOC) ;
            return $array ;
        } catch (\PDOException $e) {
-           return $e ;
+           $_SESSION['MYSQL_ERROR'] = serialize($e) ;
        }
      }
      public function getListAll(){
@@ -53,6 +53,24 @@
            return $e ;
        }
      }
+
+     public function getListForCustomForm(){
+        try
+        {
+           $sql = 'SELECT grades.nom AS grade,specialites.nom AS specialite,parcours.id AS parcours FROM parcours INNER JOIN grades
+                 ON grades.id=parcours.grade INNER JOIN specialites ON specialites.id=parcours.specialite';
+           $statement = $this->db->query($sql);
+           $data = [] ;
+         while($resultat = $statement->fetch(\PDO::FETCH_ASSOC))
+         {
+          $data[] = array('parcour' => $resultat['parcours'],
+                          'nom' => $resultat['grade'].'-'.$resultat['specialite']) ;
+         }
+           return $data ;
+         } catch (\PDOException $e) {
+           return $e ;
+         }
+     }
      public function getList($debut=0,$offset=1){
        try {
            $sql = "SELECT grades.nom AS grade,specialites.nom AS specialite,parcours.id FROM parcours INNER JOIN grades
@@ -73,5 +91,18 @@
      public function delete(int $id){
        $sql = 'DELETE FROM parcours WHERE id='.$id ;
        $statement = $this->db->query($sql) ;
+     }
+     public function search(string $keyword){
+       try {
+         $sql = 'SELECT parcours.id,grades.nom AS grade,specialites.nom AS specialite FROM parcours INNER JOIN
+         grades ON grades.id=parcours.grade INNER JOIN specialites ON specialites.id=parcours.specialite
+         WHERE concat(grades.nom," ",specialites.nom) LIKE :key' ;
+         $statement = $this->db->prepare($sql) ;
+         $statement->bindValue(':key',$keyword.'%',\PDO::PARAM_STR) ;
+         $statement->execute() ;
+         return $statement ;
+       } catch (\PDOException $e) {
+         $_SESSION['MYSQL_ERROR'] = serialize($e) ;
+       }
      }
    }

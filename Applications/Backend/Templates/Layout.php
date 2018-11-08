@@ -1,57 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Modernize an Admin Panel Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
-    <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //Meta Tags -->
-
-    <!-- Style-sheets -->
-    <!-- Bootstrap Css -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- Bootstrap Css -->
-    <!-- Bars Css -->
-    <link rel="stylesheet" href="css/bar.css">
-    <!--// Bars Css -->
-    <!-- Calender Css -->
-    <link rel="stylesheet" type="text/css" href="css/pignose.calender.css" />
-    <!--// Calender Css -->
-    <!-- Common Css -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!--// Common Css -->
-    <!-- Nav Css -->
-    <link rel="stylesheet" href="css/style4.css">
-    <!--// Nav Css -->
-    <!-- Fontawesome Css -->
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-    <!--// Fontawesome Css -->
-    <!--// Style-sheets -->
-
-    <!--web-fonts-->
-    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <!--//web-fonts-->
-</head>
-
 <body>
     <div class="se-pre-con"></div>
     <div class="wrapper">
@@ -70,6 +16,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <i class="fas fa-th-large"></i>
                         Dashboard
                     </a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false">
+                        <i class="far fa-file"></i>
+                        Gestionnaire des UE
+                        <i class="fas fa-angle-down fa-pull-right"></i>
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                      <li>
+                          <a href="ues.html">UE</a>
+                      </li>
+                      <li>
+                          <a href="domaines.html">Domaines</a>
+                      </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
@@ -98,29 +59,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                   <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
                       <i class="far fa-file"></i>
-                      Maquette UFR
+                      Gestion des parcours
                       <i class="fas fa-angle-down fa-pull-right"></i>
                   </a>
                   <ul class="collapse list-unstyled" id="pageSubmenu1">
                       <li>
-                          <a href="ues.html">Gestionnaire UE</a>
+                          <a href="parcours.html">Parcours</a>
                       </li>
                       <li>
-                          <a href="ecues.html">Gestionnaire ECUE</a>
+                          <a href="semestres_parcours.html">Semestres Parcours</a>
                       </li>
                       <li>
-                          <a href="domaines.html">Gestionnaire Dommaine</a>
-                      </li>
-                      <li>
-                          <a href="parcours.html">Gestionnaire Parcours</a>
-                      </li>
-                      <li>
-                          <a href="semestres_parcours.html">Gestionnaire Semestres</a>
-                      </li>
-                      <li>
-                          <a href="specialites.html">Gestionnaire Spécialité</a>
+                          <a href="specialites.html">Spécialités</a>
                       </li>
                   </ul>
+                </li>
+                <!-- <li>
+                    <a href="dispensees.html">
+                        <i class="fas fa-th"></i>
+                        assigner des ues
+                    </a>
+                </li> -->
+                <li>
+                    <a href="#parametre" data-toggle="collapse" aria-expanded="false">
+                        <i class="far fa-file"></i>
+                        Paramètres
+                        <i class="fas fa-angle-down fa-pull-right"></i>
+                    </a>
+                    <ul class="collapse list-unstyled" id="parametre">
+                        <li>
+                            <a href="annees_universitaires.html">Années universitaire</a>
+                        </li>
+                        <li>
+                            <a href="informations.html">Informations UFR</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="grids.html">
@@ -129,12 +102,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
+                    <a href="professeurs.html">
+                        <i class="fas fa-th"></i>
+                        Professeurs
+                    </a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu0" data-toggle="collapse" aria-expanded="false">
                         <i class="far fa-file"></i>
                         Pages
                         <i class="fas fa-angle-down fa-pull-right"></i>
                     </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu1">
+                    <ul class="collapse list-unstyled" id="pageSubmenu0">
                         <li>
                             <a href="404.html">404</a>
                         </li>
@@ -157,6 +136,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="widgets.html">
                         <i class="far fa-window-restore"></i>
                         Widgets
+                    </a>
+                </li>
+                <li>
+                    <a href="annees_universitaires.html">
+                        <i class="far fa-window-restore"></i>
+                        Années universitaires
                     </a>
                 </li>
                 <li>
@@ -204,10 +189,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </button>
                     </div>
                     <!-- Search-from -->
+                    <?php if(isset($activate_search)){ ?>
                     <form action="#" method="post" class="form-inline mx-auto search-form">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required="">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search"  name="search" aria-label="Search" required="">
                         <button class="btn btn-style my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                  <?php } ?>
                     <!--// Search-from -->
                     <ul class="top-icons-agileits-w3layouts float-right">
                         <li class="nav-item dropdown">
@@ -366,225 +353,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--// Sidebar-nav Js -->
 
-    <!-- Graph -->
-    <script src="js/SimpleChart.js"></script>
-    <script>
-        var graphdata4 = {
-            linecolor: "Random",
-            title: "Thursday",
-            values: [{
-                    X: "6",
-                    Y: 300.00
-                },
-                {
-                    X: "7",
-                    Y: 101.98
-                },
-                {
-                    X: "8",
-                    Y: 140.00
-                },
-                {
-                    X: "9",
-                    Y: 340.00
-                },
-                {
-                    X: "10",
-                    Y: 470.25
-                },
-                {
-                    X: "11",
-                    Y: 180.56
-                },
-                {
-                    X: "12",
-                    Y: 680.57
-                },
-                {
-                    X: "13",
-                    Y: 740.00
-                },
-                {
-                    X: "14",
-                    Y: 800.89
-                },
-                {
-                    X: "15",
-                    Y: 420.57
-                },
-                {
-                    X: "16",
-                    Y: 980.24
-                },
-                {
-                    X: "17",
-                    Y: 1080.00
-                },
-                {
-                    X: "18",
-                    Y: 140.24
-                },
-                {
-                    X: "19",
-                    Y: 140.58
-                },
-                {
-                    X: "20",
-                    Y: 110.54
-                },
-                {
-                    X: "21",
-                    Y: 480.00
-                },
-                {
-                    X: "22",
-                    Y: 580.00
-                },
-                {
-                    X: "23",
-                    Y: 340.89
-                },
-                {
-                    X: "0",
-                    Y: 100.26
-                },
-                {
-                    X: "1",
-                    Y: 1480.89
-                },
-                {
-                    X: "2",
-                    Y: 1380.87
-                },
-                {
-                    X: "3",
-                    Y: 1640.00
-                },
-                {
-                    X: "4",
-                    Y: 1700.00
-                }
-            ]
-        };
-        $(function () {
-            $("#Hybridgraph").SimpleChart({
-                ChartType: "Hybrid",
-                toolwidth: "50",
-                toolheight: "25",
-                axiscolor: "#E6E6E6",
-                textcolor: "#6E6E6E",
-                showlegends: false,
-                data: [graphdata4],
-                legendsize: "140",
-                legendposition: 'bottom',
-                xaxislabel: 'Hours',
-                title: 'Weekly Profit',
-                yaxislabel: 'Profit in $'
-            });
-        });
-    </script>
-    <!--// Graph -->
-    <!-- Bar-chart -->
-    <script src="js/rumcaJS.js"></script>
-    <script src="js/example.js"></script>
-    <!--// Bar-chart -->
-    <!-- Calender -->
-    <script src="js/moment.min.js"></script>
-    <script src="js/pignose.calender.js"></script>
-    <script>
-        //<![CDATA[
-        $(function () {
-            $('.calender').pignoseCalender({
-                select: function (date, obj) {
-                    obj.calender.parent().next().show().text('You selected ' +
-                        (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-                        '.');
-                }
-            });
-
-            $('.multi-select-calender').pignoseCalender({
-                multiple: true,
-                select: function (date, obj) {
-                    obj.calender.parent().next().show().text('You selected ' +
-                        (date[0] === null ? 'null' : date[0].format('YYYY-MM-DD')) +
-                        '~' +
-                        (date[1] === null ? 'null' : date[1].format('YYYY-MM-DD')) +
-                        '.');
-                }
-            });
-        });
-        //]]>
-    </script>
-    <!--// Calender -->
-
-    <!-- profile-widget-dropdown js-->
-    <script src="js/script.js"></script>
-    <!--// profile-widget-dropdown js-->
-
-    <!-- Count-down -->
-    <script src="js/simplyCountdown.js"></script>
-    <link href="css/simplyCountdown.css" rel='stylesheet' type='text/css' />
-    <script>
-        var d = new Date();
-        simplyCountdown('simply-countdown-custom', {
-            year: d.getFullYear(),
-            month: d.getMonth() + 2,
-            day: 25
-        });
-    </script>
-    <!--// Count-down -->
-
-    <!-- pie-chart -->
-    <script src='js/amcharts.js'></script>
-    <script>
-        var chart;
-        var legend;
-
-        var chartData = [{
-                country: "Lithuania",
-                value: 260
-            },
-            {
-                country: "Ireland",
-                value: 201
-            },
-            {
-                country: "Germany",
-                value: 65
-            },
-            {
-                country: "Australia",
-                value: 39
-            },
-            {
-                country: "UK",
-                value: 19
-            },
-            {
-                country: "Latvia",
-                value: 10
-            }
-        ];
-
-        AmCharts.ready(function () {
-            // PIE CHART
-            chart = new AmCharts.AmPieChart();
-            chart.dataProvider = chartData;
-            chart.titleField = "country";
-            chart.valueField = "value";
-            chart.outlineColor = "";
-            chart.outlineAlpha = 0.8;
-            chart.outlineThickness = 2;
-            // this makes the chart 3D
-            chart.depth3D = 20;
-            chart.angle = 30;
-
-            // WRITE
-            chart.write("chartdiv");
-        });
-    </script>
-    <!--// pie-chart -->
-
     <!-- dropdown nav -->
     <script>
         $(document).ready(function () {
@@ -605,7 +373,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Js for bootstrap working-->
     <script src="js/bootstrap.min.js"></script>
     <!-- //Js for bootstrap working -->
-
 </body>
 
 </html>

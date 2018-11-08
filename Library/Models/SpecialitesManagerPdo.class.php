@@ -9,8 +9,8 @@
         $statement = $this->db->prepare($sql) ;
         $statement->bindValue(':nom',$specialites->nom(),\PDO::PARAM_STR) ;
         $statement->execute() ;
-      } catch (\Exception $e) {
-       return $e ;
+      } catch (\PDOException $e) {
+       $_SESSION['MYSQL_ERROR'] = serialize($e) ;
       }
 
      }
@@ -21,8 +21,8 @@
          $statement->bindValue(':nom',$specialites->nom(),\PDO::PARAM_STR) ;
          $statement->bindValue(':id',$specialites->id(),\PDO::PARAM_INT) ;
          $statement->execute() ;
-      } catch (\Exception $e) {
-        return $e ;
+      } catch (\PDOException $e) {
+        $_SESSION['MYSQL_ERROR'] = serialize($e) ;
       }
 
      }
@@ -69,5 +69,17 @@
      public function delete(int $id){
        $sql = 'DELETE FROM specialites WHERE id='.$id ;
        $statement = $this->db->query($sql) ;
+     }
+
+     public function search(string $keyword){
+       try {
+         $sql = "SELECT * FROM specialites WHERE nom LIKE :key" ;
+         $statement = $this->db->prepare($sql) ;
+         $statement->bindValue(':key',$keyword.'%',\PDO::PARAM_STR) ;
+         $statement->execute() ;
+         return $statement ;
+       } catch (\PDOException $e) {
+         $_SESSION['MYSQL_ERROR'] = serialize($e) ;
+       }
      }
    }

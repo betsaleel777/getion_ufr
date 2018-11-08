@@ -14,9 +14,11 @@
       \Library\PdoFactory::getDatabaseName()) ;
       $indesirables = [] ;
       $board = $pagination->board(lcfirst($this->module()).'html') ;
-      $tableau = $displayer->display($list,$indesirables,$board,$this->module()) ;
+      $tableau = $displayer->displayWithoutDelete($list,$board,$this->module(),$indesirables,50) ;
       $this->page->addVar('titre', 'Liste Domaines') ;
       $this->page->addVar('tableau', $tableau) ;
+      $this->page->addVar('board', $board) ;
+
     }
 
     public function executeAdd(\Library\HTTPRequest $request){

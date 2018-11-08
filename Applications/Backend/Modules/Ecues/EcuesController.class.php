@@ -5,17 +5,30 @@
   {
     public function executeIndex(\Library\HTTPRequest $request){
       $this->page->addVar('title', 'Ecues');
+      $this->page->addVar('activate_search', true);
+      $this->page->addVar('titre','Liste Ecues') ;
       $this->setView('index');
       $manager = $this->managers->getManagerOf($this->module()) ;
-      $pagination = new \Library\Pagination($manager->count(),$request->getData('page'));
-      $list = $manager->getList((int)$pagination->firstEntry(),(int)$pagination->objectPerPage()) ;
       $displayer = new \Library\Models\Displayer($this->module(),
       $this->managers->dao(),
       \Library\PdoFactory::getDatabaseName()) ;
-      $indesirables = [] ;
+      $pagination = new \Library\Pagination($manager->count(),$request->getData('page'));
       $board = $pagination->board(lcfirst($this->module()).'html') ;
-      $tableau = $displayer->display($list,$indesirables,$board,$this->module()) ;
-      $this->page->addVar('titre', 'Liste Ecues') ;
+      $indesirables = [] ;
+
+      if(!empty($request->postData('search'))){
+        $statement = $manager->search($request->postData('search')) ;
+        $list = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
+        if(empty($list)){
+          $this->app->user()->setFlash($this->textNotify('info','Aucune ECUE retrouvée lors de la recherche')) ;
+          $this->app->httpResponse()->redirect('/met_les_gazs/web/ecues.html');
+        }
+        $this->app->user()->setFlash($this->textNotify('info',$statement->rowCount().' retrouvé(s) lors de la recherche')) ;
+      }else {
+        $list = $manager->getList((int)$pagination->firstEntry(),(int)$pagination->objectPerPage()) ;
+      }
+
+      $tableau = $displayer->displayWithoutDelete($list,$board,$this->module(),$indesirables,80) ;
       $this->page->addVar('tableau', $tableau) ;
     }
 

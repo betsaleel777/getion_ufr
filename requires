@@ -1,4 +1,4 @@
-pour utiliser la bibliotheque codersPride il est nécéssaire d'avoir les éléments suivants :
+pour utiliser la bibliotheque codersPride il est nécessaire d'avoir les éléments suivants :
 -un serveur HTTP apache2 par exemple
 -un serveur de base de donnée installer à la racine serais le meilleur
 -mysql ou postgresql comme SGBD sur votre machine
@@ -6,12 +6,25 @@ pour utiliser la bibliotheque codersPride il est nécéssaire d'avoir les élém
 
 -configurer apache2 pour faire du url rewriting activer ce module :
  taper en tant que root : a2enmod rewrite
- taper toujour en root  : gedit opt/lampp/httpd.conf si vous avez xampp
+ taper toujours en root  : gedit opt/lampp/httpd.conf si vous avez xampp
                          si apache2 est installé directement sur votre machine faire /etc/apache2/apache2.conf
 ensuite modifier la ligne allowOverride None en All
 copier les instructions ci dessous à la fin du fichier :
 
-si la page s'affiche totalement en blanc activer la dectection d'erreur php dans /etc/php/7.0/apache2/php.ini
+si la page s'affiche totalement en blanc activer la déctection d'erreur php dans /etc/php/7.0/apache2/php.ini
 rechercher la ligne display_errors = Off et changez la en On
 
-si une erreure de Dom s'affiche installer l'extensions paquet php-xml
+si une erreur de Dom s'affiche installer l'extension paquet php-xml
+
+quelques fonctionnalité
+ -dans l'interface "semestre_parcour" on doit pouvoir voir  les UE que contiennent ce semestre
+  par extensions les professeurs qui ont ou qui enseignent cette UE.
+ -dans l'interface "dispensé" nous devons avoir en page index la maquette de l'année en cour et l'option
+  voir doit apparaître ,cette dernière en terme de vue est une modale page contenant la liste déroulante
+  de toute les années-universitaires déjà crées
+
+l'onglet inscrire sera relier à deux module
+-inscription des étudiants inscrire par UE
+-inscription des étudiants par semestre parcours
+pour cela la page index générale va utiliser une modal page qui redirigera sur une page
+index spécialisé selon le choix de l'utilisateur 

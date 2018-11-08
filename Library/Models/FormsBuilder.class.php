@@ -26,10 +26,12 @@ class FormsBuilder extends OldManager
         $labelDuChamp = '<strong>'.str_replace('_',' ',$nomDuChamp).'</strong>' ;
         if (empty($valeur)) {
             $this->form->add('Select', $nomDuChamp)->label($labelDuChamp)
+                                                   ->add_class('custom-select')
                                                    ->choices($donnees)
                                                    ->value('choix')  ;
         } else {
             $this->form->add('Select', $nomDuChamp)->label($labelDuChamp)
+                                                   ->add_class('custom-select')
                                                    ->choices($donnees)
                                                    ->value($valeur) ;
         }
