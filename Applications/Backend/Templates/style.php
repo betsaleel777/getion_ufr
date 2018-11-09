@@ -29,7 +29,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
     <!-- Style-sheets -->
     <!-- Bootstrap Css -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /> -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- cdn: https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css  -->
     <!-- Bootstrap Css -->
     <!-- Bars Css -->
     <link rel="stylesheet" href="css/bar.css">
@@ -53,6 +55,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!--//web-fonts-->
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css">
+
     <link rel="stylesheet" type="text/css" href="css/jquery-customselect.css" />
     <script src='js/jquery-2.2.3.min.js'></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.bootstrap4.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" ></script>
 </head>

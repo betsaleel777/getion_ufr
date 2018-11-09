@@ -99,4 +99,23 @@ class FormsBuilder extends OldManager
         return $this->form ;
     }
 
+    public function generateWithoutSubmit(int $id=0):string
+    {
+        $lesChps = $this->getChampTable() ;
+        $champs = $this->champUtiles() ;
+        if ($id >=1){
+            $data = $this->managers->getManagerOf(ucfirst($this->tableName))->getUnique($id) ;
+            foreach ($champs as $ch):
+            $type = $lesChps[$ch]['Type'];
+            $this->input($type, $ch, $data[$ch]) ;
+            endforeach;
+        } else {
+            foreach ($champs as $ch):
+            $type = $lesChps[$ch]['Type'];
+            $this->input($type, $ch) ;
+            endforeach;
+        }
+        return $this->form ;
+    }
+
 }

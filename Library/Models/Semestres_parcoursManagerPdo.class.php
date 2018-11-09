@@ -21,8 +21,8 @@
      }
      public function update(\Library\Entities\Semestres_parcours $semestres_parcours){
        try {
-         $sql = 'UPDATE semestres_parcours SET domaine=:domaine,parcour=:parcours,semestres_niveau=:semniv,nom=:nom
-                 WHERE id=:id' ;
+         $sql = 'UPDATE semestres_parcours SET domaine=:domaine,parcour=:parcours,
+                 semestres_niveau=:semniv,nom=:nom WHERE id=:id' ;
          $statement = $this->db->prepare($sql) ;
          $statement->bindValue(':domaine',$semestres_parcours->domaine(),\PDO::PARAM_INT) ;
          $statement->bindValue(':parcours',$semestres_parcours->parcour(),\PDO::PARAM_INT) ;
@@ -65,12 +65,12 @@
            return $e ;
        }
      }
-     public function getList($debut=0,$offset=1){
+     public function getList(){
        try {
            $sql = "SELECT ues.id AS ueId,dispensees.id,concat(annees_universitaires.debut,'-',annees_universitaires.fin) AS annees_universitaire,
-           semestres_parcours.nom AS semestres_parcour,semestres_parcours.id AS semp,ues.nom AS ue FROM dispensees INNER JOIN annees_universitaires ON
+           semestres_parcours.nom AS semestres_parcour,semestres_parcours.id AS semp,semestres_parcours.parcour AS parc FROM dispensees INNER JOIN annees_universitaires ON
            annees_universitaires.id=dispensees.annees_universitaire INNER JOIN ues ON ues.id=dispensees.ue INNER JOIN
-           semestres_parcours ON semestres_parcours.id=dispensees.semestres_parcour GROUP BY semestres_parcours.nom LIMIT $debut,$offset";
+           semestres_parcours ON semestres_parcours.id=dispensees.semestres_parcour GROUP BY semestres_parcours.nom ORDER BY semestres_parcours.id DESC";
            $statement = $this->db->query($sql);
            $array = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
            return $array ;
@@ -139,4 +139,11 @@
        }
      }
 
+     /**SELECT ues.code,ues.nom,ecues.code_ecue,ecues.nom,ecues.cm,ecues.td,ecues.tp,ecues.projet, ecues.cm+ecues.td+ecues.tp+ecues.projet as Heures,ecues.credits,
+        concat(professeurs.nom,'</br>',professeurs.prenoms) as professeur from ecues inner join ues on ecues.ue = ues.id inner join
+        enseigner on ecues.id = enseigner.ecue inner join professeurs on professeurs.id = enseigner.professeur WHERE ues.id IN (SELECT dispensees.ue FROM dispensees
+        WHERE dispensees.semestres_parcour=6)
+     **/
+
    }
+?>

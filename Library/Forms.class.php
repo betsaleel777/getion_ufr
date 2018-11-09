@@ -251,7 +251,7 @@ class Forms {
 
         $tab = func_num_args() > 0 ? func_get_arg(0) : '';
 
-        $o = $tab.'<form'.$this->attrs.'>'."\n";
+        $o = $tab.'<form id="formulaire"'.$this->attrs.'>'."\n";
 
         if (empty($this->fieldsets)) {
 

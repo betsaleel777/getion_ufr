@@ -14,7 +14,7 @@
              $texte = '<tr>
                         <th scope="row">%d</th>
                         <td>%s</td>
-                        <td><a href="uesUpdate-%d.html">modifier</a></td>
+                        <td><a href="uesUpdate-%d.html"><i class="fas fa-edit fa-lg"><i></a></td>
                        </tr>' ;
             echo sprintf($texte,$i+1,$lignes[$i]['ue'],$lignes[$i]['ueId']) ;
            }

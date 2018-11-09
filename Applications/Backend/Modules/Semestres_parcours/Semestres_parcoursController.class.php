@@ -33,8 +33,7 @@ class Semestres_parcoursController extends \Library\BackController
     {
         $this->page->addVar('title', 'ajout Semestres_parcours');
         $this->setView('add');
-        $uniqid = md5(random_bytes(16));
-        $this->page->addVar('uniqid', $uniqid);
+        $this->page->addVar('uniqid', md5(random_bytes(16)));
         $parcours = $this->managers->getManagerOf('Parcours')->getListForCustomForm();
         $this->page->addVar('parcours', $parcours) ;
         $domaines = $this->managers->getManagerOf('Domaines')->getListForCustomForm();
@@ -98,6 +97,3 @@ class Semestres_parcoursController extends \Library\BackController
     }
 }
 ?>
-
-
-

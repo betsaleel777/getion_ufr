@@ -5,7 +5,8 @@
    {
      public function add(\Library\Entities\Ecues $ecues){
        try {
-         $sql = 'INSERT INTO ecues(nom,credits,ue,tp,cm,td) VALUES(:nom,:credits,:ue,:tp,:cm,:td)' ;
+         $sql = 'INSERT INTO ecues(nom,credits,ue,tp,cm,td,tpe,code_ecue,projet)
+                 VALUES(:nom,:credits,:ue,:tp,:cm,:td,:tpe,:code,:projet)' ;
          $statement = $this->db->prepare($sql) ;
          $statement->bindValue(':nom',$ecues->nom(),\PDO::PARAM_STR) ;
          $statement->bindValue(':credits',$ecues->credits(),\PDO::PARAM_INT) ;
@@ -13,6 +14,9 @@
          $statement->bindValue(':tp',$ecues->tp(),\PDO::PARAM_INT) ;
          $statement->bindValue(':cm',$ecues->cm(),\PDO::PARAM_INT) ;
          $statement->bindValue(':td',$ecues->td(),\PDO::PARAM_INT) ;
+         $statement->bindValue(':tpe',$ecues->tpe(),\PDO::PARAM_INT) ;
+         $statement->bindValue(':code',$ecues->code_ecue(),\PDO::PARAM_STR) ;
+         $statement->bindValue(':projet',$ecues->projet(),\PDO::PARAM_INT) ;
          $statement->execute() ;
        } catch (\PDOException $e) {
            $_SESSION['MYSQL_ERROR'] = serialize($e) ;
@@ -20,7 +24,8 @@
      }
      public function update(\Library\Entities\Ecues $ecues){
        try {
-         $sql = 'UPDATE ecues SET nom=:nom,credits=:cred,ue=:ue,cm=:cm,td=:td,tp=:tp WHERE id=:id' ;
+         $sql = 'UPDATE ecues SET nom=:nom,credits=:cred,ue=:ue,cm=:cm,td=:td,tp=:tp,code_ecue=:code
+                ,tpe=:tpe,projet=:projet WHERE id=:id' ;
          $statement = $this->db->prepare($sql) ;
          $statement->bindValue(':nom',$ecues->nom(),\PDO::PARAM_STR) ;
          $statement->bindValue(':cred',$ecues->credits(),\PDO::PARAM_INT) ;
@@ -28,6 +33,9 @@
          $statement->bindValue(':tp',$ecues->tp(),\PDO::PARAM_INT) ;
          $statement->bindValue(':cm',$ecues->cm(),\PDO::PARAM_INT) ;
          $statement->bindValue(':td',$ecues->td(),\PDO::PARAM_INT) ;
+         $statement->bindValue(':tpe',$ecues->tpe(),\PDO::PARAM_INT) ;
+         $statement->bindValue(':code',$ecues->code_ecue(),\PDO::PARAM_STR) ;
+         $statement->bindValue(':projet',$ecues->projet(),\PDO::PARAM_INT) ;
          $statement->bindValue(':id',$ecues->id(),\PDO::PARAM_INT) ;
          $statement->execute() ;
        } catch (\PDOException $e) {

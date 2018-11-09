@@ -41,32 +41,47 @@
           ?>
           <h3 class="tittle-w3-agileits mb-4">ECUE <?php echo $i+1 ; ?></h3>
           <div class="form-group">
+            <label for="Name">code ECUE:</label>
+            <input type="text" <?php $texte='name="codeEcue%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="Name"
+              <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['code_ecue']) ?> required="">
+          </div>
+          <div class="form-group">
             <label for="inputName">Nom ECUE:</label>
             <input type="text" hidden <?php $texte='name="id%d"'; echo sprintf($texte,$i+1) ; ?> <?php $texte='value="%d"'; echo sprintf($texte,$ecues[$i]['id']) ; ?> >
             <input type="text" <?php $texte='name="nomEcue%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputName"
               <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['nom']) ?> required="">
           </div>
           <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
               <label for="inputCm">Heures CM</label>
               <input type="text" <?php $texte='name="cm%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputCm"
                <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['cm']) ?> required="">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
               <label for="inputtp">Heures TP</label>
               <input type="text" <?php $texte='name="tp%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputtp"
               <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['tp']) ?> >
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
               <label for="inputtd">Heures TD</label>
               <input type="text" <?php $texte='name="td%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputtd"
                <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['td']) ?> >
             </div>
+            <div class="form-group col-md-3">
+              <label for="inputTpe">Heures TPE</label>
+              <input type="text" <?php $texte='name="tpe%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputTpe"
+               <?php $texte='value="%s"'; echo sprintf($texte,$ecues[$i]['tpe']) ?> >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputProjet">Credits:</label>
+            <input type="text" <?php $texte='name="projet%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputProjet"
+            <?php $texte='value="%d"'; echo sprintf($texte,$ecues[$i]['projet']) ?> required="">
           </div>
           <div class="form-group">
             <label for="inputCredit">Credits:</label>
             <input type="text" <?php $texte='name="credits%d"'; echo sprintf($texte,$i+1) ; ?> class="form-control" id="inputCredit"
-            <?php $texte='value="%d"'; echo sprintf($texte,$needs['idSempar']) ?> required="">
+            <?php $texte='value="%d"'; echo sprintf($texte,$ecues[$i]['credits']) ?> required="">
           </div>
          <?php
             }
@@ -79,3 +94,5 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-notify.min.js"></script>
 <script src="js/notifier.js"></script>
+<script src="js/ecueForm.js"></script>
+<script src="js/automatic.js"></script>

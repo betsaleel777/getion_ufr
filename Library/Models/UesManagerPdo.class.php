@@ -56,10 +56,10 @@
        }
      }
 
-     public function getList($debut=0,$offset=1){
+     public function getList(){
        try {
-           $sql = "SELECT ues.id,ues.code,ues.nom,GROUP_CONCAT(ecues.nom) AS ecues FROM ues INNER JOIN
-                   ecues ON ues.id=ecues.ue GROUP BY ues.id ORDER BY ues.id DESC LIMIT $debut,$offset";
+           $sql = "SELECT ues.id,ues.code,ues.nom,GROUP_CONCAT(ecues.nom SEPARATOR '<br>') AS ecues FROM ues INNER JOIN
+                   ecues ON ues.id=ecues.ue GROUP BY ues.id ORDER BY ues.id DESC";
            $statement = $this->db->query($sql);
            $array = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
            return $array ;
@@ -90,7 +90,7 @@
 
      public function search(string $keyword){
        try {
-         $sql = "SELECT ues.id,ues.code,ues.nom,GROUP_CONCAT(ecues.nom) AS ecues FROM ues INNER JOIN
+         $sql = "SELECT ues.id,ues.code,ues.nom,GROUP_CONCAT(ecues.nom SEPARATOR '<br>') AS ecues FROM ues INNER JOIN
                  ecues ON ues.id=ecues.ue WHERE ues.nom LIKE :key GROUP BY ues.id" ;
          $statement = $this->db->prepare($sql) ;
          $statement->bindValue(':key',$keyword.'%',\PDO::PARAM_STR) ;
@@ -122,5 +122,5 @@
          $_SESSION['MYSQL_ERROR'] = serialize($e) ;
        }
      }
-
    }
+?>

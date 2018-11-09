@@ -46,3 +46,4 @@
 <script src="js/bootstrap-notify.min.js"></script>
 <script src="js/notifier.js"></script>
 <script src="js/ecueForm.js"></script>
+<script src="js/automatic.js"></script>

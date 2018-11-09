@@ -62,9 +62,9 @@
        }
      }
 
-     public function getList($debut=0,$offset=1){
+     public function getList(){
        try {
-           $sql = "SELECT * FROM domaines LIMIT $debut,$offset";
+           $sql = "SELECT * FROM domaines ORDER BY id DESC";
            $statement = $this->db->query($sql);
            $array = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
            return $array ;

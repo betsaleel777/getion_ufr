@@ -32,7 +32,7 @@
                       </li>
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fas fa-laptop"></i>
                         Components
@@ -55,7 +55,7 @@
                             <a href="tables.html">Tables</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                   <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false">
                       <i class="far fa-file"></i>
@@ -65,9 +65,6 @@
                   <ul class="collapse list-unstyled" id="pageSubmenu1">
                       <li>
                           <a href="parcours.html">Parcours</a>
-                      </li>
-                      <li>
-                          <a href="semestres_parcours.html">Semestres Parcours</a>
                       </li>
                       <li>
                           <a href="specialites.html">Spécialités</a>
@@ -88,90 +85,14 @@
                     </a>
                     <ul class="collapse list-unstyled" id="parametre">
                         <li>
-                            <a href="annees_universitaires.html">Années universitaire</a>
-                        </li>
-                        <li>
-                            <a href="informations.html">Informations UFR</a>
+                            <a href="ufr.html">Informations UFR</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="grids.html">
-                        <i class="fas fa-th"></i>
-                        Grid Layouts
-                    </a>
                 </li>
                 <li>
                     <a href="professeurs.html">
                         <i class="fas fa-th"></i>
                         Professeurs
-                    </a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu0" data-toggle="collapse" aria-expanded="false">
-                        <i class="far fa-file"></i>
-                        Pages
-                        <i class="fas fa-angle-down fa-pull-right"></i>
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu0">
-                        <li>
-                            <a href="404.html">404</a>
-                        </li>
-                        <li>
-                            <a href="500.html">500</a>
-                        </li>
-                        <li>
-                            <a href="blank.html">Blank</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="mailbox.html">
-                        <i class="far fa-envelope"></i>
-                        Mailbox
-                        <span class="badge badge-secondary float-md-right bg-danger">5 New</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="widgets.html">
-                        <i class="far fa-window-restore"></i>
-                        Widgets
-                    </a>
-                </li>
-                <li>
-                    <a href="annees_universitaires.html">
-                        <i class="far fa-window-restore"></i>
-                        Années universitaires
-                    </a>
-                </li>
-                <li>
-                    <a href="pricing.html">
-                        <i class="fas fa-table"></i>
-                        Pricing Tables
-                    </a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
-                        <i class="fas fa-users"></i>
-                        User
-                        <i class="fas fa-angle-down fa-pull-right"></i>
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu3">
-                        <li>
-                            <a href="login.html">Login</a>
-                        </li>
-                        <li>
-                            <a href="register.html">Register</a>
-                        </li>
-                        <li>
-                            <a href="forgot.html">Forgot password</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="far fa-map"></i>
-                        Maps
                     </a>
                 </li>
             </ul>
@@ -316,7 +237,6 @@
                     </ul>
                 </div>
             </nav>
-            <!--// top-bar -->
               <?php echo $content ; ?>
             <!-- Copyright -->
             <div class="copyright-w3layouts py-xl-3 py-2 mt-xl-5 mt-4 text-center">
@@ -328,7 +248,7 @@
         </div>
     </div>
     <!-- Required common Js -->
-    <script src='js/jquery-2.2.3.min.js'></script>
+    <!-- <script src='js/jquery-2.2.3.min.js'></script> -->
     <!-- //Required common Js -->
 
     <!-- loading-gif Js -->

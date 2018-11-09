@@ -11,6 +11,7 @@ class Annees_universitairesManagerPdo extends Annees_universitairesManager
             $statement->bindValue(':debut', $annees_universitaires->debut(), \PDO::PARAM_STR) ;
             $statement->bindValue(':fin', $annees_universitaires->fin(), \PDO::PARAM_STR) ;
             $statement->execute() ;
+            $_SESSION['now'] = $this->db->lastInsertId() ;
         } catch (\PDOException $e) {
              $_SESSION['MYSQL_ERROR'] = serialize($e) ;
         }
@@ -18,7 +19,8 @@ class Annees_universitairesManagerPdo extends Annees_universitairesManager
 
     public function nowId(){
       try {
-        $sql = 'SELECT id FROM annees_universitaires WHERE fin LIKE "'.date("Y").'"' ;
+        $sql = 'SELECT annees_universitaire AS id FROM ufr INNER JOIN annees_universitaires
+                WHERE annees_universitaires.fin LIKE "'.date("Y").'"' ;
         $statement = $this->db->query($sql);
         $array = $statement->fetch(\PDO::FETCH_ASSOC) ;
         return $array['id'] ;
@@ -37,7 +39,7 @@ class Annees_universitairesManagerPdo extends Annees_universitairesManager
             $statement->bindValue(':fin', $annees_universitaires->fin(), \PDO::PARAM_STR) ;
             $statement->bindValue(':id', $annees_universitaires->id(), \PDO::PARAM_INT) ;
             $statement->execute() ;
-        } catch (\Exception $e) {
+        } catch (\PDOException $e) {
              $_SESSION['MYSQL_ERROR'] = serialize($e) ;
         }
     }
@@ -55,7 +57,7 @@ class Annees_universitairesManagerPdo extends Annees_universitairesManager
     public function getListAll()
     {
         try {
-            $sql = "SELECT * FROM annees_universitaires";
+            $sql = "SELECT id,concat(debut,'-',fin) AS nom FROM annees_universitaires";
             $statement = $this->db->query($sql);
             $data = [] ;
             while ($resultat = $statement->fetch(\PDO::FETCH_ASSOC)) {
@@ -76,10 +78,10 @@ class Annees_universitairesManagerPdo extends Annees_universitairesManager
         return $resultat ;
     }
 
-    public function getList($debut=0, $offset=1)
+    public function getList()
     {
         try {
-            $sql = "SELECT * FROM annees_universitaires LIMIT $debut,$offset";
+            $sql = 'SELECT * FROM annees_universitaires ORDER BY id DESC';
             $statement = $this->db->query($sql);
             $array = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
             return $array ;

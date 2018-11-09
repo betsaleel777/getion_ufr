@@ -11,3 +11,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-notify.min.js"></script>
 <script src="js/notifier.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#index-table').DataTable();
+} );
+</script>

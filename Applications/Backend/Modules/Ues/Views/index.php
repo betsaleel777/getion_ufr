@@ -1,4 +1,7 @@
 <div class="outer-w3-agile mt-3">
+  <div id="notifier" hidden>
+  	<?php if($user->hasFlash()){echo $user->getFlash();} ?>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <a href="uesAdd.html" class="btn btn-primary"><i class="fas fa-plus"></i>ajouter</a>
@@ -10,7 +13,7 @@
 <div class="outer-w3-agile mt-3">
     <h4 class="tittle-w3-agileits mb-4"><i class="fas fa-list" aria-hidden="true"></i>
 <?php if(isset($titre)){ echo $titre ;} ?></h4>
-    <table class="table table-striped">
+    <table id='indexTable' class="table table-striped">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">N</th>
@@ -47,3 +50,8 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-notify.min.js"></script>
 <script src="js/notifier.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#indexTable').DataTable();
+} );
+</script>

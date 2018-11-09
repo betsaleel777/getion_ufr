@@ -1,3 +1,4 @@
-function poubelle(node){
-  node.parentNode;
+function poubelle(elt){
+  ligne = elt.parentElement ;
+  ligne.remove() ;
 }

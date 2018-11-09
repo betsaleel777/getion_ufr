@@ -15,24 +15,10 @@
       public function executeIndex(HTTPRequest $request)
       {
           $this->page->addVar('title', 'Ues');
-          $this->page->addVar('activate_search', true);
           $this->page->addVar('titre', 'Liste Ues') ;
           $this->setView('index');
           $manager = $this->managers->getManagerOf($this->module()) ;
-          $pagination = new Pagination($manager->count(), $request->getData('page'));
-          $board = $pagination->board(lcfirst($this->module()).'.html') ;
-
-          if (!empty($request->postData('search'))) {
-              $statement = $manager->search($request->postData('search')) ;
-              $list = $statement->fetchAll(\PDO::FETCH_ASSOC) ;
-              if (empty($list)) {
-                  $this->app->user()->setFlash($this->textNotify('info','Aucune UE retrouvée lors de la recherche')) ;
-                  $this->app->httpResponse()->redirect('/met_les_gazs/web/ues.html');
-              }
-              $this->app->user()->setFlash($this->textNotify('info', $statement->rowCount().' retrouvé(s) lors de la recherche')) ;
-          } else {
-              $list = $manager->getList((int)$pagination->firstEntry(), (int)$pagination->objectPerPage()) ;
-          }
+          $list = $manager->getList() ;
           $this->page->addVar('tableau', $list) ;
       }
 
@@ -49,16 +35,22 @@
 
           if ($request->postExists('uniqid')) {
               $data = array('credits' => $request->postData('credits1') ,
+                      'tpe' => (int)$request->postData('tpe1') ,
                       'td' => (int)$request->postData('td1') ,
                       'tp' => (int)$request->postData('tp1') ,
                       'cm' => $request->postData('cm1') ,
                       'nom' => $request->postData('nomEcue1') ,
+                      'code_ecue' => $request->postData('codeEcue1') ,
+                      'projet' => (int)$request->postData('projet1') ,
                      ) ;
               $ecue1 = new Ecues($data) ;
               $data = array('credits' => $request->postData('credits2') ,
+                      'tpe' => (int)$request->postData('tpe2') ,
                       'td' => (int)$request->postData('td2') ,
                       'tp' => (int)$request->postData('tp2') ,
                       'cm' => $request->postData('cm2') ,
+                      'projet' => (int)$request->postData('projet2') ,
+                      'code_ecue' => $request->postData('codeEcue2') ,
                       'nom'=> $request->postData('nomEcue2') ,
                      ) ;
               $ecue2 = new Ecues($data) ;
@@ -133,18 +125,24 @@
 
           if ($request->postExists('uniqid')) {
             $data = array('credits' => $request->postData('credits1') ,
+                    'tpe' => (int)$request->postData('tpe1') ,
                     'td' => (int)$request->postData('td1') ,
                     'tp' => (int)$request->postData('tp1') ,
                     'cm' => $request->postData('cm1') ,
-                    'nom'=> $request->postData('nomEcue1') ,
+                    'nom' => $request->postData('nomEcue1') ,
+                    'code_ecue' => $request->postData('codeEcue1') ,
+                    'projet' => (int)$request->postData('projet1') ,
                     'id' => $request->postData('id1')
                    ) ;
             $ecue1 = new Ecues($data) ;
             $data = array('credits' => $request->postData('credits2') ,
+                    'tpe' => (int)$request->postData('tpe2') ,
                     'td' => (int)$request->postData('td2') ,
                     'tp' => (int)$request->postData('tp2') ,
                     'cm' => $request->postData('cm2') ,
-                    'nom'=> $request->postData('nomEcue2') ,
+                    'nom' => $request->postData('nomEcue2') ,
+                    'code_ecue' => $request->postData('codeEcue2') ,
+                    'projet' => (int)$request->postData('projet2') ,
                     'id' => $request->postData('id2')
                    ) ;
             $ecue2 = new Ecues($data) ;
