@@ -31,7 +31,7 @@ class Semestres_parcoursController extends \Library\BackController
 
     public function executeAdd(\Library\HTTPRequest $request)
     {
-        $this->page->addVar('title', 'ajout Semestres_parcours');
+        $this->page->addVar('title', 'assigner semestre à un ancien parcours');
         $this->setView('add');
         $this->page->addVar('uniqid', md5(random_bytes(16)));
         $parcours = $this->managers->getManagerOf('Parcours')->getListForCustomForm();

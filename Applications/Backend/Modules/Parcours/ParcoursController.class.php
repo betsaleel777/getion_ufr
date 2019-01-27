@@ -21,7 +21,7 @@ class ParcoursController extends \Library\BackController
 
     public function executeAdd(HTTPRequest $request)
     {
-        $this->page->addVar('title', 'ajout Parcours');
+        $this->page->addVar('title', 'ajout un nouveau parcours');
         $this->setView('add');
         $this->page->addVar('uniqid', md5(random_bytes(16)));
 
@@ -133,9 +133,11 @@ class ParcoursController extends \Library\BackController
 
     public function executeMaquette(HTTPRequest $request)
     {
-      $maquette = $this->managers->getManagerOf($this->module())->getMaquette($request->getData('sempar'));
+      $maquette = $this->managers->getManagerOf($this->module())->getMaquette($request->getData('sempar')) ;
+      $parcour = $this->managers->getManagerOf('Semestres_parcours')->getUnique($request->getData('sempar')) ;
       $this->page->addVar('maquette', $maquette);
       $this->page->addVar('title', 'maquette du parcours');
+      $this->page->addVar('titre', 'maquette '.$parcour['nom']);
       $this->setView('maquette');
     }
 }

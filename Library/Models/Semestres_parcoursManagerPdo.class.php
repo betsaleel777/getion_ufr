@@ -69,7 +69,7 @@
        try {
            $sql = "SELECT ues.id AS ueId,dispensees.id,concat(annees_universitaires.debut,'-',annees_universitaires.fin) AS annees_universitaire,
            semestres_parcours.nom AS semestres_parcour,semestres_parcours.id AS semp,semestres_parcours.parcour AS parc FROM dispensees INNER JOIN annees_universitaires ON
-           annees_universitaires.id=dispensees.annees_universitaire INNER JOIN ues ON ues.id=dispensees.ue INNER JOIN
+           annees_universitaires.id=dispensees.annees_universitaire INNER JOIN ues ON ues.id=dispensees.ue RIGHT JOIN
            semestres_parcours ON semestres_parcours.id=dispensees.semestres_parcour GROUP BY semestres_parcours.nom ORDER BY semestres_parcours.id DESC";
            $statement = $this->db->query($sql);
            $array = $statement->fetchAll(\PDO::FETCH_ASSOC) ;

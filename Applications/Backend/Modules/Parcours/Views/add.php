@@ -1,4 +1,13 @@
 <div class="outer-w3-agile mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <a href="semestres_parcoursAdd.html" class="btn btn-primary"><i class="fas fa-plus"></i>Assigner Semestre</a>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+</div>
+<div class="outer-w3-agile mt-3">
  <center><h3> <?php if(isset($title)){ echo $title ; } ?></h3></center>
   <div id="notifier" hidden>
   	<?php if($user->hasFlash()){echo $user->getFlash();} ?>
@@ -75,3 +84,21 @@
  }
 </script>
 <script src="js/insertParcours.js"></script>
+<script src="js/jquery-customselect.js"></script>
+<script>
+          (function($) {
+            $(function() {
+            $("#id_specialite").customselect({
+            "csclass":"custom-select",  // Class to match
+            "search": true, // Is searchable?
+            "numitems":     5,    // Number of results per page
+            "searchblank":  false,// Search blank value options?
+            "showblank":    true, // Show blank value options?
+            "searchvalue":  false,// Search option values?
+            "hoveropen":    false,// Open the select on hover?
+            "emptytext":    "",   // Change empty option text to a set value
+            "showdisabled": true,// Show disabled options
+          });
+            });
+})(jQuery);
+</script>

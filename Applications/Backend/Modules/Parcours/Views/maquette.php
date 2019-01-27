@@ -1,11 +1,4 @@
 <div class="outer-w3-agile mt-3">
-  <div class="row">
-    <div class="col-md-2">
-      <a href="parcoursAdd.html" class="btn btn-primary"><i class="fas fa-plus"></i>ajouter</a>
-    </div>
-  </div>
-</div>
-<div class="outer-w3-agile mt-3">
   <div id="notifier" hidden>
   	<?php if($user->hasFlash()){echo $user->getFlash();} ?>
   </div>
@@ -30,27 +23,27 @@
                 </tr>
             </thead>
             <tbody>
-              <?php if(isset($tableau)){
-                $max = count($tableau) ;
+              <?php if(isset($maquette)){
+                $max = count($maquette) ;
                  for ($i=0; $i <$max ; $i++) {
                    $texte = '<tr>
                               <th scope="row">%d</th>
                               <td>%s</td>
                               <td>%s</td>
-                              <td>
-                               <a href="parcoursUpdate-%d-%d.html">
-                                 <i class="fas fa-edit" aria-hidden="true"></i>
-                               </a>&nbsp
-                               <a href="dispenseesShow-%d.html">
-                                <i class="fas fa-binoculars" aria-hidden="true"></i>
-                               </a>&nbsp
-                               <a href="parcoursMaquette-%d.html">
-                                <i class="fas fa-map" aria-hidden="true"></i>
-                               </a>
-                              </td>
+                              <td>%s</td>
+                              <td>%s</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%d</td>
+                              <td>%s</td>
                              </tr>' ;
-                  echo sprintf($texte,$i+1,$tableau[$i]['semestres_parcour'],$tableau[$i]['annees_universitaire'],
-                               $tableau[$i]['parc'],$tableau[$i]['semp'],$tableau[$i]['semp'],$tableau[$i]['semp']) ;
+                  echo sprintf($texte,$i+1,$maquette[$i]['code'],$maquette[$i]['ue'],$maquette[$i]['code_ecue'],$maquette[$i]['ecue'],
+                  $maquette[$i]['cm'],$maquette[$i]['td'],$maquette[$i]['tp'],$maquette[$i]['projet'],$maquette[$i]['total'],$maquette[$i]['tpe'],
+                  $maquette[$i]['credits'],$maquette[$i]['enseignant']) ;
                  }
               }else {
                 echo '<tr><td colspan="4">Aucune informations</td></tr>' ;

@@ -124,9 +124,9 @@ class ParcoursManagerPdo extends ParcoursManager
 
     public function getMaquette(int $id){
       try {
-        $sql = "SELECT ues.code,ues.nom,ecues.code_ecue,ecues.nom,ecues.cm,ecues.td,ecues.tp,ecues.projet,
-                ecues.cm+ecues.td+ecues.tp+ecues.projet AS Heures,ecues.credits,concat(professeurs.nom,' ',
-                professeurs.prenoms) AS professeur FROM ecues INNER JOIN ues ON ecues.ue = ues.id
+        $sql = "SELECT ues.code,ues.nom AS ue,ecues.code_ecue,ecues.nom AS ecue,ecues.cm,ecues.td,ecues.tp,ecues.projet,ecues.tpe,
+                ecues.cm+ecues.td+ecues.tp+ecues.projet AS total,ecues.credits,concat(professeurs.nom,' ',
+                professeurs.prenoms) AS enseignant FROM ecues INNER JOIN ues ON ecues.ue = ues.id
                 INNER JOIN enseigner ON ecues.id = enseigner.ecue INNER JOIN professeurs ON
                 professeurs.id = enseigner.professeur WHERE ues.id IN (SELECT dispensees.ue FROM dispensees
                 WHERE dispensees.semestres_parcour=$id)" ;

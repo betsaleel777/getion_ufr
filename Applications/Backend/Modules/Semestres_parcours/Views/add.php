@@ -7,7 +7,7 @@
       <input type="hidden" name="uniqid" <?php if(isset($uniqid)){ echo 'value="'.$uniqid.'"' ;} ?>>
       <div class="form-group">
         <label for="firstName"><strong>Nom:</strong></label>
-        <input type="text" class="form-control" id="firstName" placeholder="" name="nom" required="">
+        <input readonly type="text" class="form-control" id="firstName" placeholder="" name="nom" required="">
       </div>
       <div class="form-group">
         <label for="parcour"><strong>Parcours:</strong></label>
@@ -64,4 +64,22 @@
      document.getElementById('firstName').value=parcourText + ' ' + semestreText ;
    }
  }
+</script>
+<script src="js/jquery-customselect.js"></script>
+<script>
+          (function($) {
+            $(function() {
+            $("#parcour").customselect({
+            "csclass":"custom-select",  // Class to match
+            "search": true, // Is searchable?
+            "numitems":     5,    // Number of results per page
+            "searchblank":  false,// Search blank value options?
+            "showblank":    true, // Show blank value options?
+            "searchvalue":  false,// Search option values?
+            "hoveropen":    false,// Open the select on hover?
+            "emptytext":    "",   // Change empty option text to a set value
+            "showdisabled": true,// Show disabled options
+          });
+            });
+})(jQuery);
 </script>
